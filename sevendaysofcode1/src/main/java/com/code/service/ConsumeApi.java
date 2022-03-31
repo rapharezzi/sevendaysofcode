@@ -9,8 +9,11 @@ public class ConsumeApi {
 	
 	private final String apiKey; 
 	
-	public ConsumeApi(String apiKey) {
+	public ConsumeApi(String apiKey) {		
 		this.apiKey = apiKey;
+		
+		if (apiKey == null || apiKey.isEmpty())
+			throw new RuntimeException("Informe apiKey no arquivo properties");
 	}
 
 	public MovieList getTop250Movies() {
